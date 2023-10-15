@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "808774940788",
+    "project_id": "app-trabajo-2",
+    "storage_bucket": "app-trabajo-2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:808774940788:android:5f77fbdd0e7e4467b6f921",
+        "android_client_info": {
+          "package_name": "cl.example.el7es"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBwh-QfjkfaVVBy4nNBduqP3g19WmDJWEk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:808774940788:android:ad91017e66bc32dbb6f921",
+        "android_client_info": {
+          "package_name": "cl.example.trabajonro2"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBwh-QfjkfaVVBy4nNBduqP3g19WmDJWEk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
