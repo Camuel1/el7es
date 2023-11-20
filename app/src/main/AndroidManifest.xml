@@ -13,11 +13,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.El7es"
         tools:targetApi="31">
+        <activity
+            android:name=".MainActivity2"
+            android:exported="false" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyAh3qoQcdZbLbRZhwvUPh2Sz1yxEbLA2tE"
-            />
+            android:value="AIzaSyAh3qoQcdZbLbRZhwvUPh2Sz1yxEbLA2tE" />
+
         <activity
             android:name=".Sensores"
             android:exported="false" />

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/holo_green_light"
     tools:context=".MenuPrincipal">
 
     <ImageView
@@ -19,17 +20,6 @@
         app:srcCompat="@drawable/soccer" />
 
     <Button
-        android:id="@+id/btn_reservar"
-        android:layout_width="235dp"
-        android:layout_height="50dp"
-        android:text="Reservar tu Cancha"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.513" />
-
-    <Button
         android:id="@+id/btnmap"
         android:layout_width="235dp"
         android:layout_height="50dp"
@@ -38,36 +28,39 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.627" />
+        app:layout_constraintVertical_bias="0.712" />
 
     <Button
-        android:id="@+id/btnlogin"
+        android:id="@+id/btnout"
         android:layout_width="235dp"
         android:layout_height="50dp"
-        android:text="Ingresa a tu Cuenta"
+        android:text="Cerrar Sesion"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.471"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.738" />
+        app:layout_constraintVertical_bias="0.841" />
 
     <Button
-        android:id="@+id/btnregister"
+        android:id="@+id/btncancha"
         android:layout_width="235dp"
         android:layout_height="50dp"
-        android:text="Registrate Con Nosotros"
+        android:background="@android:color/holo_green_dark"
+        android:text="Canchas"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.471"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.829" />
+        app:layout_constraintVertical_bias="0.59" />
 
     <ScrollView
         android:layout_width="38dp"
         android:layout_height="373dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.932"
+        app:layout_constraintHorizontal_bias="0.957"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.955">
@@ -78,15 +71,4 @@
             android:orientation="vertical" />
     </ScrollView>
 
-    <Button
-        android:id="@+id/btnSensor"
-        android:layout_width="235dp"
-        android:layout_height="50dp"
-        android:text="Sensores"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.471"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.925" />
 </androidx.constraintlayout.widget.ConstraintLayout>

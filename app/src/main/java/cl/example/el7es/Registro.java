@@ -83,6 +83,9 @@ public class Registro extends AppCompatActivity {
                                         // El registro fue exitoso
                                         registrouser(email, password);
                                         Toast.makeText(Registro.this, "Registro de usuario exitoso", Toast.LENGTH_SHORT).show();
+
+                                        Intent intent = new Intent(Registro.this, MenuPrincipal.class);
+                                        startActivity(intent);
                                         // Puedes redirigir al usuario a la pantalla principal u otra actividad aquí
                                     } else {
                                         // El registro falló
