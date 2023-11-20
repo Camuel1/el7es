@@ -29,8 +29,6 @@ public class Ubicacion extends AppCompatActivity implements OnMapReadyCallback, 
         setContentView(R.layout.activity_ubicacion);
 
         btnVolverMenuPrincipal = findViewById(R.id.btmenu);
-        txtLatitud = findViewById(R.id.txtLatitud);
-        txtLongitud = findViewById(R.id.txtLongitud);
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
@@ -48,11 +46,25 @@ public class Ubicacion extends AppCompatActivity implements OnMapReadyCallback, 
     @Override
     public void onMapReady(@NonNull GoogleMap googleMap) {
         mMap= googleMap;
+
+
+
+
         this.mMap.setOnMapClickListener(this);
         this.mMap.setOnMapLongClickListener(this);
 
         LatLng Chillan = new LatLng(-36.6236501,-72.139589);
         mMap.moveCamera(CameraUpdateFactory.newLatLng(Chillan));
+        LatLng ChillanSoccer = new LatLng(-36.6211772,-72.1107827);
+        mMap.addMarker(new MarkerOptions().position(ChillanSoccer).title("Chillan Soccer"));
+        LatLng LaCurvaSoccer = new LatLng(-36.6038949,-72.1118428);
+        mMap.addMarker(new MarkerOptions().position(LaCurvaSoccer).title("LaCurvaSoccer"));
+        LatLng PolideportivoLaLiga = new LatLng(-36.591593,-72.1164714);
+        mMap.addMarker(new MarkerOptions().position(PolideportivoLaLiga).title("Polideportido La Liga"));
+
+
+
+
 
     }
 

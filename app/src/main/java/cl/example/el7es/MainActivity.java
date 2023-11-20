@@ -15,7 +15,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class MainActivity extends AppCompatActivity {
 
-    private EditText etNombre, etEmail, etHora;
+    private EditText etNombre, etHora;
     private Button btnGuardar, btnMenuPrincipal;
     private DatabaseReference databaseReference;
 
@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         etNombre = findViewById(R.id.id_name);
-        etEmail = findViewById(R.id.id_correo);
+
         etHora = findViewById(R.id.id_hora);
 
         btnGuardar = findViewById(R.id.id_agendar);
@@ -47,10 +47,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 final String nombre = etNombre.getText().toString();
-                final String email = etEmail.getText().toString();
+
                 final String hora = etHora.getText().toString();
 
-                if (nombre.isEmpty() || email.isEmpty() || hora.isEmpty()) {
+                if (nombre.isEmpty()  || hora.isEmpty()) {
                     Toast.makeText(MainActivity.this, "Completa todos los campos", Toast.LENGTH_SHORT).show();
                 } else {
                     // Comprobar si la hora ya está registrada
@@ -62,13 +62,13 @@ public class MainActivity extends AppCompatActivity {
                             } else {
                                 DatabaseReference nuevoUsuarioRef = databaseReference.push();
                                 nuevoUsuarioRef.child("nombre").setValue(nombre);
-                                nuevoUsuarioRef.child("email").setValue(email);
+
                                 nuevoUsuarioRef.child("hora").setValue(hora);
 
                                 Toast.makeText(MainActivity.this, "Hora Reservada", Toast.LENGTH_SHORT).show();
 
                                 etNombre.setText("");
-                                etEmail.setText("");
+
                                 etHora.setText("");
                             }
                         }

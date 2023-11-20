@@ -25,6 +25,7 @@ public class MainActivity2 extends AppCompatActivity {
         reserva1= findViewById(R.id.botonregistrar);
         reserva2= findViewById(R.id.botonregistrar2);
         reserva3= findViewById(R.id.botonregistrar3);
+        btnvolver= findViewById(R.id.btnvolver);
 
 
 
@@ -48,6 +49,14 @@ public class MainActivity2 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity2.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        btnvolver.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity2.this, MenuPrincipal.class);
                 startActivity(intent);
             }
         });
