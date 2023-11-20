@@ -38,20 +38,18 @@ public class Registro extends AppCompatActivity {
 
     private Button btmenu;
 
-
-    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro);
 
+        // Inicializar FirebaseAuth
+        mAuth = FirebaseAuth.getInstance();
+
         btmenu = findViewById(R.id.btback2);
-
-
         editTextEmail = findViewById(R.id.id_email);
         editTextPassword = findViewById(R.id.id_pass);
         btnRegister = findViewById(R.id.bt_registro);
-
 
         btmenu.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,68 +60,62 @@ public class Registro extends AppCompatActivity {
             }
         });
 
-
-
         // Agregar un Listener al botón de registro
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // Aquí se inicia el proceso de reCAPTCHA antes de registrar al usuario
-                //  mAuth.getFirebaseAuthSettings().setAppVerificationDisabledForTesting(true); // Esto deshabilita la verificación de reCAPTCHA en entornos de prueba
 
                 Firestore = FirebaseFirestore.getInstance();
                 String email = editTextEmail.getText().toString();
                 String password = editTextPassword.getText().toString();
 
-                mAuth.createUserWithEmailAndPassword(email, password)
-                        .addOnCompleteListener(Registro.this, new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                if (email.isEmpty() && password.isEmpty()) {
-                                    // Registro exitoso
-                                    Toast.makeText(Registro.this, "complete los datos", Toast.LENGTH_SHORT).show();
-                                    // El registro falló
-
-                                } else {
-                                    registrouser(email,password);
-                                    Toast.makeText(Registro.this, "Registro de usuario exitoso", Toast.LENGTH_SHORT).show();
-                                    // Puedes redirigir al usuario a la pantalla principal u otra actividad aquí
+                if (email.isEmpty() || password.isEmpty()) {
+                    // Verificar si el email o la contraseña están vacíos
+                    Toast.makeText(Registro.this, "Por favor, complete todos los campos", Toast.LENGTH_SHORT).show();
+                } else {
+                    // Registro del usuario
+                    mAuth.createUserWithEmailAndPassword(email, password)
+                            .addOnCompleteListener(Registro.this, new OnCompleteListener<AuthResult>() {
+                                @Override
+                                public void onComplete(@NonNull Task<AuthResult> task) {
+                                    if (task.isSuccessful()) {
+                                        // El registro fue exitoso
+                                        registrouser(email, password);
+                                        Toast.makeText(Registro.this, "Registro de usuario exitoso", Toast.LENGTH_SHORT).show();
+                                        // Puedes redirigir al usuario a la pantalla principal u otra actividad aquí
+                                    } else {
+                                        // El registro falló
+                                        Toast.makeText(Registro.this, "Error al registrar el usuario", Toast.LENGTH_SHORT).show();
+                                    }
                                 }
+                            });
+                }
+            }
+
+            private void registrouser(String email, String password) {
+                String id = mAuth.getCurrentUser().getUid();
+                Map<String, Object> map = new HashMap<>();
+                map.put("id", id);
+                map.put("email", email);
+                map.put("password", password);
+
+                Firestore.collection("user").document(id).set(map)
+                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void unused) {
+                                finish();
+                                startActivity(new Intent(Registro.this, LoginActivity.class));
+                                Toast.makeText(Registro.this, "Usuario registrado", Toast.LENGTH_SHORT).show();
+                            }
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Toast.makeText(Registro.this, "Error al guardar", Toast.LENGTH_SHORT).show();
                             }
                         });
-
             }
-
-            private void registrouser (String email, String password){
-                mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                    String id = mAuth.getCurrentUser().getUid();
-                    Map < String , Object> map = new HashMap<>();
-                    map.put("id",id);
-                    map.put("email",editTextEmail);
-                    map.put("password",editTextPassword);
-
-                    Firestore.collection("user").document(id).set(map).addOnSuccessListener(new OnSuccessListener<Void>() {
-                        @Override
-                        public void onSuccess(Void unused) {
-                            finish();
-                            startActivity(new Intent(Registro.this,LoginActivity.class));
-                            Toast.makeText(Registro.this,"usuario registrado", Toast.LENGTH_SHORT).show();
-
-                        }
-                    }).addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            Toast.makeText(Registro.this,"error al guardar",Toast.LENGTH_SHORT).show();
-                        }
-                    });
-                    }
-                });
-
-
-            }
-
         });
     }
 }
