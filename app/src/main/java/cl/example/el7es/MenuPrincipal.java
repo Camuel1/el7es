@@ -1,56 +1,40 @@
 package cl.example.el7es;
 
-import android.content.Context;
 import android.content.Intent;
-import android.hardware.Sensor;
-import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.util.List;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class MenuPrincipal extends AppCompatActivity {
 
+    Button btncancha;
+    Button btnCerrarSesion;
 
-    Button btnRegistro;
-    Button btnLogin;
-    Button btnUbicacion;
-    Button btnActivityMain;
-    Button btnSensor;
+    Button btnmap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_principal);
 
-         btnRegistro = findViewById(R.id.btnregister);
-         btnLogin = findViewById(R.id.btnlogin);
-         btnUbicacion = findViewById(R.id.btnmap);
-         btnActivityMain = findViewById(R.id.btn_reservar);
-         btnSensor = findViewById(R.id.btnSensor);
+        btncancha= findViewById(R.id.btncancha);
+        btnCerrarSesion = findViewById(R.id.btnout);
+        btnmap = findViewById(R.id.btnmap);
 
-
-        btnRegistro.setOnClickListener(new View.OnClickListener() {
+        btncancha.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MenuPrincipal.this, Registro.class);
+                Intent intent = new Intent(MenuPrincipal.this, MainActivity2.class);
                 startActivity(intent);
             }
         });
 
-        btnLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MenuPrincipal.this, LoginActivity.class);
-                startActivity(intent);
-            }
-        });
 
-        btnUbicacion.setOnClickListener(new View.OnClickListener() {
+        btnmap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MenuPrincipal.this, Ubicacion.class);
@@ -58,23 +42,22 @@ public class MenuPrincipal extends AppCompatActivity {
             }
         });
 
-        btnActivityMain.setOnClickListener(new View.OnClickListener() {
+        btnCerrarSesion.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MenuPrincipal.this, MainActivity.class);
-                startActivity(intent);
+            public void onClick(View view) {
+                cerrarSesion();
             }
         });
-
-        btnSensor.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MenuPrincipal.this, Sensores.class);
-                startActivity(intent);
-            }
-        });
-
     }
 
 
+    private void cerrarSesion() {
+        FirebaseAuth.getInstance().signOut();
+
+        // Redirige al usuario de vuelta a la actividad de inicio de sesión
+        Intent intent = new Intent(MenuPrincipal.this, LoginActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
+        finish(); // Finaliza la actividad actual
+    }
 }

@@ -34,10 +34,10 @@
             android:name=".Registro"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".MenuPrincipal"
             android:exported="false" />
         <activity
-            android:name=".MenuPrincipal"
+            android:name=".LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

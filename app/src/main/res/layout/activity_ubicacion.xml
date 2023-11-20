@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:map="http://schemas.android.com/apk/res-auto"
+    android:background="#0FE74C"
     tools:context=".Ubicacion">
 
     <EditText
@@ -56,8 +57,9 @@
 
     <Button
         android:id="@+id/btmenu"
-        android:layout_width="214dp"
-        android:layout_height="54dp"
+        android:layout_width="228dp"
+        android:layout_height="44dp"
+        android:backgroundTint="#8C4005"
         android:text="Menu Principal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

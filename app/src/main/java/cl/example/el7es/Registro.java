@@ -36,7 +36,7 @@ public class Registro extends AppCompatActivity {
     private EditText editTextPassword;
     private Button btnRegister;
 
-    private Button btmenu;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,19 +46,12 @@ public class Registro extends AppCompatActivity {
         // Inicializar FirebaseAuth
         mAuth = FirebaseAuth.getInstance();
 
-        btmenu = findViewById(R.id.btback2);
+
         editTextEmail = findViewById(R.id.id_email);
         editTextPassword = findViewById(R.id.id_pass);
         btnRegister = findViewById(R.id.bt_registro);
 
-        btmenu.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Navegar a la actividad "Registro"
-                Intent intent = new Intent(Registro.this, MenuPrincipal.class);
-                startActivity(intent);
-            }
-        });
+
 
         // Agregar un Listener al botón de registro
         btnRegister.setOnClickListener(new View.OnClickListener() {

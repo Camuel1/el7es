@@ -4,8 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/holo_green_light"
+    android:background="#0FE74C"
     tools:context=".MenuPrincipal">
+
+    <Button
+        android:id="@+id/btncancha"
+        android:layout_width="228dp"
+        android:layout_height="44dp"
+        android:backgroundTint="#8C4005"
+        android:text="Canchas"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.57" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -21,39 +34,28 @@
 
     <Button
         android:id="@+id/btnmap"
-        android:layout_width="235dp"
-        android:layout_height="50dp"
-        android:text="Ver Ubicacion"
+        android:layout_width="228dp"
+        android:layout_height="44dp"
+        android:backgroundTint="#8C4005"
+        android:text="Ubicacion canchas"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.712" />
+        app:layout_constraintVertical_bias="0.671" />
 
     <Button
         android:id="@+id/btnout"
-        android:layout_width="235dp"
-        android:layout_height="50dp"
+        android:layout_width="228dp"
+        android:layout_height="44dp"
+        android:backgroundTint="#8C4005"
         android:text="Cerrar Sesion"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.471"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.841" />
-
-    <Button
-        android:id="@+id/btncancha"
-        android:layout_width="235dp"
-        android:layout_height="50dp"
-        android:background="@android:color/holo_green_dark"
-        android:text="Canchas"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.471"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.59" />
+        app:layout_constraintVertical_bias="0.775" />
 
     <ScrollView
         android:layout_width="38dp"
@@ -63,7 +65,7 @@
         app:layout_constraintHorizontal_bias="0.957"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.955">
+        app:layout_constraintVertical_bias="0.91">
 
         <LinearLayout
             android:layout_width="match_parent"

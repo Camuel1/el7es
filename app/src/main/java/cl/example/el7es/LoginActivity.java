@@ -26,7 +26,6 @@ public class LoginActivity extends AppCompatActivity {
     Button btnLogin;
 
     Button btRegistro;
-    Button btmenu;
 
     FirebaseAuth mAuth;
 
@@ -44,18 +43,6 @@ public class LoginActivity extends AppCompatActivity {
         editTextPassword = findViewById(R.id.editTextPassword);
         btnLogin = findViewById(R.id.btnLogin);
         btRegistro = findViewById(R.id.id_registro);
-        btmenu = findViewById(R.id.btback);
-
-
-        btmenu.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Navegar a la actividad "Menu"
-                Intent intent = new Intent(LoginActivity.this, MenuPrincipal.class);
-                startActivity(intent);
-            }
-        });
-
 
 
         btRegistro.setOnClickListener(new View.OnClickListener() {
